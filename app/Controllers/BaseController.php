@@ -26,19 +26,25 @@ abstract class BaseController
     protected function render(string $view, array $data = []): string
     {
         $viewFile = $this->viewPath . $view . '.php';
+        $layoutFile = $this->viewPath . 'layout.php';
 
         if (!file_exists($viewFile)) {
             throw new \RuntimeException("View {$view} not found.");
         }
 
-        $config = $this->config;
+        if (!file_exists($layoutFile)) {
+            throw new \RuntimeException('Layout file not found.');
+        }
+
         extract($data, EXTR_SKIP);
+        $config = $this->config;
 
         ob_start();
-
-        include $this->viewPath . 'layout/header.php';
         include $viewFile;
-        include $this->viewPath . 'layout/footer.php';
+        $content = (string) ob_get_clean();
+
+        ob_start();
+        include $layoutFile;
 
         return (string) ob_get_clean();
     }
