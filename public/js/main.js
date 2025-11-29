@@ -1,12 +1,16 @@
 /**
- * Handles smooth scrolling and updates active nav links while scrolling.
+ * Smooth scrolling + active nav handling.
  */
 (function () {
     const navLinks = document.querySelectorAll('.navbar .nav-link');
 
-    const sections = Array.from(navLinks)
-        .map((link) => document.querySelector(link.getAttribute('href')))
-        .filter(Boolean);
+    function getSections() {
+        return Array.from(navLinks)
+            .map((link) => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+    }
+
+    const sections = getSections();
 
     function handleScroll() {
         const scrollPosition = window.scrollY + 120;
@@ -33,6 +37,7 @@
     });
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('load', handleScroll);
     handleScroll();
 })();
 

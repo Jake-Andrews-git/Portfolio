@@ -1,0 +1,85 @@
+:root {
+    --accent-color: #4f46e5;
+    --accent-dark: #3730a3;
+    --background-color: #f8fafc;
+    --text-color: #0f172a;
+    --muted-color: #475569;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding-top: 80px;
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    color: var(--muted-color);
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:focus,
+.navbar .nav-link:hover {
+    color: var(--accent-color);
+}
+
+.site-main {
+    min-height: 100vh;
+}
+
+.hero-section {
+    padding: 5rem 0 4rem;
+}
+
+.section-padding {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.hero-card,
+.skills-card,
+.project-card,
+.placeholder-card {
+    background-color: #fff;
+}
+
+.experience-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    margin-top: 0.45rem;
+}
+
+.site-footer {
+    padding: 2rem 0;
+    background-color: #fff;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    margin-top: 4rem;
+}
+
+.alert-container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+
