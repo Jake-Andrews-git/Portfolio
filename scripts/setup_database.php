@@ -4,6 +4,9 @@ declare(strict_types=1);
 /**
  * CLI script to create SQLite tables and insert mock data for PortfolioDB.sqlite.
  *
+ *
+ *
+ *
  * Usage:
  *   php scripts/setup_database.php
  */
