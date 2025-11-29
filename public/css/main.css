@@ -1,0 +1,66 @@
+:root {
+    --accent-color: #4f46e5;
+    --background-color: #f8fafc;
+    --text-color: #0f172a;
+    --muted-color: #64748b;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+}
+
+.navbar-brand {
+    color: var(--text-color);
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    color: var(--muted-color);
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:focus,
+.navbar .nav-link:hover {
+    color: var(--accent-color);
+}
+
+.hero-section {
+    padding-top: 6rem;
+}
+
+.hero-card {
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+.project-card .card-title {
+    color: var(--text-color);
+}
+
+.project-card .card-text {
+    color: var(--muted-color);
+}
+
+footer {
+    background-color: #fff;
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        padding-top: 4rem;
+    }
+}
+
