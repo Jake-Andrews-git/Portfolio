@@ -1,36 +1,31 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Global configuration values.
- * Fill in placeholders (e.g., email credentials) before deploying.
- */
+if (!function_exists('portfolio_env')) {
+    function portfolio_env(string $key, string $default = ''): string
+    {
+        $value = getenv($key);
+
+        return is_string($value) && $value !== '' ? $value : $default;
+    }
+}
 
 $config = [
     'app' => [
         'name' => 'Jake Andrews Portfolio',
-        'environment' => 'development',
-        'base_url' => '/',
+        'environment' => portfolio_env('APP_ENV', 'development'),
+        'base_url' => rtrim(portfolio_env('APP_BASE_URL', ''), '/'),
         'timezone' => 'Europe/London',
     ],
     'contact' => [
-        'method' => 'sqlite', // options: sqlite, email
-        'email' => [
-            'to' => 'you@example.com',
-            'from' => 'portfolio@example.com',
-            'smtp_host' => '',
-            'smtp_port' => 587,
-            'smtp_username' => '',
-            'smtp_password' => '',
-        ],
-        'storage' => [
-            'sqlite_path' => __DIR__ . '/../storage/data/PortfolioDB.sqlite',
-        ],
+        'email' => portfolio_env('PORTFOLIO_CONTACT_EMAIL', 'jakegeorgeandrews04@gmail.com'),
     ],
-    'logging' => [
-        'path' => __DIR__ . '/../storage/logs/app.log',
+    'links' => [
+        'github' => portfolio_env('PORTFOLIO_GITHUB_URL', 'https://github.com/Jake-Andrews-git'),
+        'linkedin' => portfolio_env('PORTFOLIO_LINKEDIN_URL', 'https://www.linkedin.com/in/jake-andrews-629817249/'),
+        'live' => portfolio_env('PORTFOLIO_LIVE_URL'),
     ],
+    'portfolio' => require __DIR__ . '/portfolio.php',
 ];
 
 date_default_timezone_set($config['app']['timezone']);
-

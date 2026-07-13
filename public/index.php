@@ -5,6 +5,14 @@ declare(strict_types=1);
  * Front controller and lightweight router.
  */
 
+if (PHP_SAPI === 'cli-server') {
+    $staticPath = __DIR__ . parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+
+    if (is_file($staticPath)) {
+        return false;
+    }
+}
+
 require_once __DIR__ . '/../config/config.php';
 
 spl_autoload_register(function (string $class): void {
@@ -17,7 +25,6 @@ spl_autoload_register(function (string $class): void {
 });
 
 use Controllers\HomeController;
-use Controllers\ContactController;
 
 $config = $config ?? [];
 
@@ -26,11 +33,6 @@ $routes = [
         'controller' => HomeController::class,
         'action' => 'index',
         'methods' => ['GET'],
-    ],
-    'contact/submit' => [
-        'controller' => ContactController::class,
-        'action' => 'submit',
-        'methods' => ['POST'],
     ],
 ];
 
@@ -76,4 +78,3 @@ if (!method_exists($controller, $action)) {
 
 $response = $controller->$action();
 echo $response;
-

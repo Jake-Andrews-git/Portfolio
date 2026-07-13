@@ -11,15 +11,17 @@ class HomeController extends BaseController
     public function index(): string
     {
         $alerts = $this->getAlertFromQuery();
+        $portfolio = $this->config['portfolio'] ?? [];
 
         return $this->render('home', [
             'pageTitle' => 'Home | ' . ($this->config['app']['name'] ?? 'Portfolio'),
             'alerts' => $alerts,
+            'portfolio' => $portfolio,
         ]);
     }
 
     /**
-     * Reads status/message from the query string for contact form feedback.
+     * Reads status/message from the query string for legacy contact feedback links.
      */
     private function getAlertFromQuery(): ?array
     {
@@ -36,4 +38,3 @@ class HomeController extends BaseController
         ];
     }
 }
-

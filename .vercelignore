@@ -1,0 +1,8 @@
+.git
+.idea
+.repo-review-cache
+.env
+identifier.sqlite
+storage
+scripts
+*.sqlite

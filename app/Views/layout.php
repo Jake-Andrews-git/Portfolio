@@ -1,7 +1,10 @@
 <?php
 $siteTitle = $config['app']['name'] ?? 'Portfolio';
 $pageTitle = $pageTitle ?? $siteTitle;
-$baseUrl = rtrim($config['app']['base_url'] ?? '/', '/');
+$baseUrl = rtrim($config['app']['base_url'] ?? '', '/');
+$contactEmail = $config['contact']['email'] ?? '';
+$githubUrl = $config['links']['github'] ?? '';
+$linkedinUrl = $config['links']['linkedin'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +16,17 @@ $baseUrl = rtrim($config['app']['base_url'] ?? '/', '/');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.dataset.theme = storedTheme || (prefersDark ? 'dark' : 'light');
+            } catch (error) {
+                document.documentElement.dataset.theme = 'light';
+            }
+        })();
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= $baseUrl; ?>/css/styles.css">
 </head>
@@ -31,6 +45,10 @@ $baseUrl = rtrim($config['app']['base_url'] ?? '/', '/');
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
+                <button class="theme-toggle ms-lg-3" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+                    <span class="theme-toggle-icon" aria-hidden="true"></span>
+                    <span data-theme-toggle-label>Dark</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -42,12 +60,23 @@ $baseUrl = rtrim($config['app']['base_url'] ?? '/', '/');
     <footer class="site-footer">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
             <span class="text-muted">&copy; <?= date('Y'); ?> <?= htmlspecialchars($siteTitle, ENT_QUOTES, 'UTF-8'); ?></span>
-            <a class="text-decoration-none" href="mailto:<?= htmlspecialchars($config['contact']['email']['to'] ?? 'you@example.com', ENT_QUOTES, 'UTF-8'); ?>">Email me</a>
+            <?php if ($contactEmail !== ''): ?>
+                <a class="text-decoration-none" href="mailto:<?= htmlspecialchars($contactEmail, ENT_QUOTES, 'UTF-8'); ?>">Email me</a>
+            <?php elseif ($linkedinUrl !== ''): ?>
+                <a class="text-decoration-none" href="<?= htmlspecialchars($linkedinUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">LinkedIn</a>
+            <?php elseif ($githubUrl !== ''): ?>
+                <a class="text-decoration-none" href="<?= htmlspecialchars($githubUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener">GitHub</a>
+            <?php endif; ?>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="<?= $baseUrl; ?>/js/main.js"></script>
+    <script>
+        window.va = window.va || function () {
+            (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
-
