@@ -160,6 +160,23 @@ a:hover {
     border-radius: 0.5rem;
 }
 
+.linkedin-profile-badge {
+    min-height: 74px;
+    overflow-x: auto;
+}
+
+.linkedin-profile-badge__theme--dark {
+    display: none;
+}
+
+[data-theme="dark"] .linkedin-profile-badge__theme--light {
+    display: none;
+}
+
+[data-theme="dark"] .linkedin-profile-badge__theme--dark {
+    display: block;
+}
+
 .project-card {
     overflow: hidden;
     box-shadow: 0 0.75rem 1.75rem var(--shadow-color) !important;

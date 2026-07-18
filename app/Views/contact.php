@@ -35,6 +35,20 @@ $linkedinUrl = $config['links']['linkedin'] ?? '';
                                 <span class="text-body-secondary">Contact details available on request.</span>
                             <?php endif; ?>
                         </div>
+                        <?php if ($linkedinUrl !== ''): ?>
+                            <div class="linkedin-profile-badge mt-4">
+                                <div class="linkedin-profile-badge__theme linkedin-profile-badge__theme--light">
+                                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="HORIZONTAL" data-vanity="jake-andrews-4906233a6" data-version="v1">
+                                        <a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/jake-andrews-4906233a6?trk=profile-badge" target="_blank" rel="noopener">Jake Andrews</a>
+                                    </div>
+                                </div>
+                                <div class="linkedin-profile-badge__theme linkedin-profile-badge__theme--dark">
+                                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="HORIZONTAL" data-vanity="jake-andrews-4906233a6" data-version="v1">
+                                        <a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/jake-andrews-4906233a6?trk=profile-badge" target="_blank" rel="noopener">Jake Andrews</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </article>
             </div>
