@@ -21,3 +21,5 @@ LOCAL_IMPLEMENTATION_NOTES.md
 .idea/
 .DS_Store
 Thumbs.db
+.vercel
+.env*
