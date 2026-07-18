@@ -160,6 +160,169 @@ a:hover {
     border-radius: 0.5rem;
 }
 
+.contact-actions {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.contact-action-buttons {
+    display: flex;
+    flex: 0 1 10rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 9rem;
+}
+
+.contact-action-buttons .btn {
+    white-space: nowrap;
+    width: 100%;
+}
+
+.linkedin-profile-badge {
+    background: #fff;
+    border: 1px solid #d6d6d6;
+    border-radius: 0.5rem;
+    color: #000;
+    display: inline-flex;
+    flex-direction: column;
+    flex: 1 1 16rem;
+    max-width: 19rem;
+    min-width: 0;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.linkedin-profile-badge:hover,
+.linkedin-profile-badge:focus-visible {
+    border-color: #0a66c2;
+    box-shadow: 0 0.5rem 1.25rem var(--shadow-color);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.linkedin-profile-badge:focus-visible {
+    outline: 3px solid color-mix(in srgb, #0a66c2 35%, transparent);
+    outline-offset: 3px;
+}
+
+.linkedin-profile-badge__header {
+    background: #e9e5df;
+    color: #0a66c2;
+    display: block;
+    padding: 0.65rem 1rem;
+}
+
+.linkedin-profile-badge__brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+}
+
+.linkedin-profile-badge__brand span {
+    background: #0a66c2;
+    border-radius: 0.1rem;
+    color: #fff;
+    display: inline-block;
+    line-height: 1;
+    margin-left: 0.08rem;
+    padding: 0.08rem;
+}
+
+.linkedin-profile-badge__body {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding: 0.85rem 1rem 1rem;
+}
+
+.linkedin-profile-badge__avatar {
+    background: #c8d0d8;
+    border-radius: 50%;
+    display: block;
+    height: 3.25rem;
+    margin-bottom: 0.65rem;
+    overflow: hidden;
+    position: relative;
+    width: 3.25rem;
+}
+
+.linkedin-profile-badge__avatar::before {
+    background: #7890a6;
+    border-radius: 50%;
+    content: '';
+    height: 1.45rem;
+    left: 0.9rem;
+    position: absolute;
+    top: 0.55rem;
+    width: 1.45rem;
+}
+
+.linkedin-profile-badge__avatar::after {
+    background: #7890a6;
+    border-radius: 50% 50% 0 0;
+    bottom: -0.35rem;
+    content: '';
+    height: 1.75rem;
+    left: 0.55rem;
+    position: absolute;
+    width: 2.15rem;
+}
+
+.linkedin-profile-badge__name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.linkedin-profile-badge__headline,
+.linkedin-profile-badge__school {
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.linkedin-profile-badge__school {
+    margin-top: 0.2rem;
+}
+
+.linkedin-profile-badge__cta {
+    border: 1px solid #0a66c2;
+    border-radius: 999px;
+    color: #0a66c2;
+    font-weight: 600;
+    margin-top: 0.6rem;
+    padding: 0.25rem 0.85rem;
+}
+
+[data-theme="dark"] .linkedin-profile-badge {
+    background: #000;
+    border-color: #56687a;
+    color: #fff;
+}
+
+[data-theme="dark"] .linkedin-profile-badge:hover,
+[data-theme="dark"] .linkedin-profile-badge:focus-visible {
+    color: #fff;
+}
+
+[data-theme="dark"] .linkedin-profile-badge__header {
+    background: #38434f;
+    color: #fff;
+}
+
+[data-theme="dark"] .linkedin-profile-badge__brand span {
+    background: #fff;
+    color: #38434f;
+}
+
+[data-theme="dark"] .linkedin-profile-badge__cta {
+    border-color: #fff;
+    color: #fff;
+}
+
 .project-card {
     overflow: hidden;
     box-shadow: 0 0.75rem 1.75rem var(--shadow-color) !important;
@@ -326,6 +489,12 @@ a:hover {
 
     .section-title {
         font-size: 1.85rem;
+    }
+
+    .contact-action-buttons,
+    .linkedin-profile-badge {
+        flex-basis: 100%;
+        max-width: none;
     }
 
     .project-card .card-body,
