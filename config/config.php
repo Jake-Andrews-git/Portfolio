@@ -22,7 +22,7 @@ $config = [
     ],
     'links' => [
         'github' => portfolio_env('PORTFOLIO_GITHUB_URL', 'https://github.com/Jake-Andrews-git'),
-        'linkedin' => portfolio_env('PORTFOLIO_LINKEDIN_URL', 'https://www.linkedin.com/in/jake-andrews-629817249/'),
+        'linkedin' => portfolio_env('PORTFOLIO_LINKEDIN_URL', 'https://www.linkedin.com/in/jake-andrews-4906233a6/'),
         'live' => portfolio_env('PORTFOLIO_LIVE_URL'),
     ],
     'portfolio' => require __DIR__ . '/portfolio.php',
