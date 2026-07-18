@@ -36,18 +36,14 @@ $linkedinUrl = $config['links']['linkedin'] ?? '';
                             <?php endif; ?>
                         </div>
                         <?php if ($linkedinUrl !== ''): ?>
-                            <div class="linkedin-profile-badge mt-4">
-                                <div class="linkedin-profile-badge__theme linkedin-profile-badge__theme--light">
-                                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="HORIZONTAL" data-vanity="jake-andrews-4906233a6" data-version="v1">
-                                        <a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/jake-andrews-4906233a6?trk=profile-badge" target="_blank" rel="noopener">Jake Andrews</a>
-                                    </div>
-                                </div>
-                                <div class="linkedin-profile-badge__theme linkedin-profile-badge__theme--dark">
-                                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="HORIZONTAL" data-vanity="jake-andrews-4906233a6" data-version="v1">
-                                        <a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/jake-andrews-4906233a6?trk=profile-badge" target="_blank" rel="noopener">Jake Andrews</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="linkedin-profile-card mt-4" href="<?= htmlspecialchars($linkedinUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener" aria-label="View Jake Andrews on LinkedIn (opens in a new tab)">
+                                <span class="linkedin-profile-card__logo" aria-hidden="true">in</span>
+                                <span class="linkedin-profile-card__content">
+                                    <span class="linkedin-profile-card__name">Jake Andrews</span>
+                                    <span class="linkedin-profile-card__label">View LinkedIn profile</span>
+                                </span>
+                                <span class="linkedin-profile-card__arrow" aria-hidden="true">&nearr;</span>
+                            </a>
                         <?php endif; ?>
                     </div>
                 </article>
